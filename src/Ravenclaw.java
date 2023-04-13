@@ -46,18 +46,18 @@ public class Ravenclaw extends Hogwarts {
     }
 
     @Override
-    public void printInfoStudent() {
-        super.printInfoStudent();
-        System.out.println("Ум = " + getMind() + "\nМудрость = " + getWisdom() + "\nОстроумие = " + getWit() + "\nТворчество = " + getCreation());
-        Main.printSeparatorMinus();
+    public String toString() {
+        return super.toString() + "\nУм = " + getMind() + "\nМудрость = " + getWisdom() + "\nОстроумие = " + getWit() + "\nТворчество = " + getCreation() + "\n------------------------";
     }
-
-    public void print(Ravenclaw[] ravenclaws, int index) {
-        for (int i = 0; i < ravenclaws.length; i++) {
-            Ravenclaw ravenclaw = ravenclaws[i];
-            if (i == index) {
-                System.out.println("Name:" + ravenclaw.getName() + "\nPower:" + ravenclaw.getPowerOfMagic());
-                System.out.println();}
+    public void studentComparisonFaculty(Ravenclaw student) {
+        int sumSkillsFaculty1 = mind + wisdom + wit + creation;
+        int sumSkillsFaculty2 = student.mind + student.wisdom + student.wit + student.creation;
+        if (sumSkillsFaculty1 > sumSkillsFaculty2) {
+            System.out.println(getName() + " лучший Когтевранец, чем " + student.getName() + " (" + sumSkillsFaculty1 + " vs " + sumSkillsFaculty2 + ") баллов.");
+        } else if (sumSkillsFaculty2 > sumSkillsFaculty1) {
+            System.out.println(student.getName() + " лучший Когтевранец, чем " + getName() + " (" + sumSkillsFaculty2 + " vs " + sumSkillsFaculty1 + ") баллов.");
+        } else {
+            System.out.println("Студенты равны по силе, (" + sumSkillsFaculty1 + " vs " + sumSkillsFaculty2 + ") баллов.");
         }
     }
 }

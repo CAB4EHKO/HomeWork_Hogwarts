@@ -3,7 +3,7 @@ public class Main {
 
         Gryffindor harry = new Gryffindor("Гриффендор", "Гарри Поттер", 99, 95, 65, 75, 70);
         Gryffindor hermione = new Gryffindor("Гриффендор", "Гермиона Грейнджер", 90, 95, 75, 65, 50);
-        Gryffindor ron = new Gryffindor("Гриффендор", "Рон Уизли", 70, 65, 70, 75, 95);
+        Gryffindor ron = new Gryffindor("Гриффендор", "Рон Уизли", 70, 65, 65, 75, 45);
 
         Hufflepuff zaharia = new Hufflepuff("Пуффендуй", "Захария Смит", 80, 70, 60, 70, 70);
         Hufflepuff cedric = new Hufflepuff("Пуффендуй", "Седрик Диггори", 65, 60, 65, 75, 80);
@@ -17,31 +17,50 @@ public class Main {
         Slytherin graham = new Slytherin("Слизерин", "Грэхэм Монтегю", 70, 65, 65, 60, 80, 75, 70);
         Slytherin gregory = new Slytherin("Слизерин", "Грегори Гойл", 65, 60, 60, 65, 75, 65, 65);
 
-        harry.printInfoStudent();
-        hermione.printInfoStudent();
-        ron.printInfoStudent();
+        // Методы для вывода информации об учениках "Хогвартса".
+        showInfoStudent(harry);
+        showInfoStudent(hermione);
+        showInfoStudent(ron);
+
         printSeparator();
 
-        justin.printInfoStudent();
-        zaharia.printInfoStudent();
-        cedric.printInfoStudent();
+        showInfoStudent(zaharia);
+        showInfoStudent(cedric);
+        showInfoStudent(justin);
+
         printSeparator();
 
-        jou.printInfoStudent();
-        padma.printInfoStudent();
-        marcus.printInfoStudent();
+        showInfoStudent(jou);
+        showInfoStudent(padma);
+        showInfoStudent(marcus);
+
         printSeparator();
 
-        darko.printInfoStudent();
-        graham.printInfoStudent();
-        gregory.printInfoStudent();
+        showInfoStudent(darko);
+        showInfoStudent(graham);
+        showInfoStudent(gregory);
+
+        printSeparator();
+
+        //Метод для сравнения учеников внутри школы.
+        harry.studentComparison(darko);
+
+        printSeparatorMinus();
+
+        //Метод для сравнения учеников внутри факультета.
+        darko.studentComparisonFaculty(graham);
     }
-     static void printSeparator() {
+
+    static void printSeparator() {
         System.out.println("************************");
         System.out.println("------------------------");
     }
 
     static void printSeparatorMinus() {
         System.out.println("------------------------");
+    }
+
+    static void showInfoStudent(Hogwarts student) {
+        System.out.println(student.toString());
     }
 }

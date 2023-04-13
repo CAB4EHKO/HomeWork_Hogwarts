@@ -35,9 +35,19 @@ public class Gryffindor extends Hogwarts {
     }
 
     @Override
-    public void printInfoStudent() {
-        super.printInfoStudent();
-        System.out.println("Благородство = " + getNobility() + "\nЧесть = " + getHonor() + "\nХрабрость = " + getBravery());
-        Main.printSeparatorMinus();
+    public String toString() {
+        return super.toString() + "\nБлагородство = " + getNobility() + "\nЧесть = " + getHonor() + "\nХрабрость = " + getBravery() + "\n------------------------";
+    }
+
+    public void studentComparisonFaculty(Gryffindor student) {
+        int sumSkillsFaculty1 = nobility + honor + bravery;
+        int sumSkillsFaculty2 = student.nobility + student.honor + student.bravery;
+        if (sumSkillsFaculty1 > sumSkillsFaculty2) {
+            System.out.println(getName() + " лучший Гриффендорец, чем " + student.getName() + " (" + sumSkillsFaculty1 + " vs " + sumSkillsFaculty2 + ") баллов.");
+        } else if (sumSkillsFaculty2 > sumSkillsFaculty1) {
+            System.out.println(student.getName() + " лучший Гриффендорец, чем " + getName() + " (" + sumSkillsFaculty2 + " vs " + sumSkillsFaculty1 + ") баллов.");
+        } else {
+            System.out.println("Студенты равны по силе, (" + sumSkillsFaculty1 + " vs " + sumSkillsFaculty2 + ") баллов.");
+        }
     }
 }
